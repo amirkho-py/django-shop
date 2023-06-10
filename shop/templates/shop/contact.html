@@ -1,0 +1,26 @@
+{% extends 'shop/base.html' %}
+
+{% block mainContent%}
+
+      <div class="pages-bnaer ">
+         <div class="container">
+            <h2>تماس با ما</h2>
+            <hr>
+            <form action="#" method="post">
+
+            {% csrf_token %}
+
+               {{form.name.label}} {{form.name}}
+               <br>
+               {{form.phone.label}} {{form.phone}}
+               <br>
+               {{form.message.label}} {{form.message}}
+               <br>
+
+
+               <input type="submit" value="ارسال پیام" class="btn btn-info">
+
+            </form>
+         </div>
+      </div>
+{% endblock mainContent%}

@@ -1,0 +1,327 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+ 
+
+
+ {% block mainContent %}
+
+
+
+
+
+ 
+ <!----------------------------------> 
+ <div class="container ">
+   <div class="row">
+      <div class="col-md-12">
+         
+
+
+
+
+         <div id="demo" class="carousel slide" data-ride="carousel" >
+
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+              <li data-target="#demo" data-slide-to="0" class="active"></li>
+              <li data-target="#demo" data-slide-to="1"></li>
+              <li data-target="#demo" data-slide-to="2"></li>
+            </ul>
+          
+            <!-- The slideshow -->
+            <div class="carousel-inner" style="border-radius:20px">
+
+               <div class="carousel-item active" style="border-radius:20px">
+               
+                  <img src="{% static 'shop/img/slide.jpg' %}" alt="Los Angeles" style="border-radius:20px">
+                 </div>
+
+               {% for slide in all_slides%}
+              <div class="carousel-item" style="border-radius:20px">
+               
+               <a href="{{slide.link}}" target="_blank"><img src="{{slide.image.url}}" alt="Los Angeles" style="border-radius:20px"></a>
+              </div>
+              {% endfor %}
+              
+            </div>
+          
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </a>
+          
+          </div>
+
+
+<br>
+
+
+         <!--slider-box-->
+      </div>
+   </div>
+</div>
+<!----------------------------------> 
+<div class="container">
+   <div class="row">
+      
+      <div class="col-md-12">
+         <div class="vizheh">
+            <div class="col-md-6">
+               <div class="vizheh-img">
+                  <img src="{% static 'shop/img/p20lite-listimage-black.png'%}" class="w-100" />
+               </div>
+            </div>
+            <div class="col-md-6">
+               <div class="vizheh-content">
+                  <div><del>729,000 تومان</del></div>
+                  <h4>685,000 تومان</h4>
+                  <h3>Huawei Tab Y300G2</h3>
+                  <ul>
+                     <li>حافظه داخلی 32 گیگابایت</li>
+                     <li>دوربین 13 مگاپیکسل</li>
+                  </ul>
+                  <hr>
+                  <span>زمان باقیمانده تا پایان سفارش</span> 
+                  <div class="counter" data-minutes-left="1000"></div>
+               </div>
+            </div>
+            <div class="vizheh-tag">
+               <span>فرصت ویژه</span>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<br>
+<!---------------------------------->   
+
+
+
+{% for cat in categories %}
+
+<div class="container">
+   <div class="row">
+      <div class="col-md-12">
+         <div class="one-slider">
+            <h4>{{cat.name}}</h4>
+            <div class="owl-carousel owl-theme ov1">
+
+
+               {% for pro in cat.product_set.all %}
+               <div class="item">
+                  <figure>
+                     <a href="{% url 'shop:detail' pro.id %}"><img src="{{pro.image.url}}" class="w-100" /></a>
+                  </figure>
+                  <h5>{{pro.name}}</h5>
+                  <span>{{pro.price}}</span>
+               </div>
+
+               {% endfor %}
+
+              
+              
+
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+{% endfor %}
+
+
+<div class="tab-box">
+   <ul class="nav nav-tabs">
+      
+      {% for cat in categories %}
+      <li class=""><a data-toggle="tab" href="#watch"><i class="fa fa-gift"></i>{{cat.name}}</a></li>
+      {% endfor %}
+   </ul>
+   <div class="container">
+      <div class="row">
+         <div class="tab-content">
+            <div id="watch" class="tab-pane fade">
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/watch/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/watch/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/watch/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/watch/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/watch/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/watch/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/watch/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/watch/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/watch/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/watch/1.jpg" class="w-100" /></a>
+               </div>
+            </div>
+            <div id="badaligat" class="tab-pane fade">
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/badal/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/badal/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/badal/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/badal/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/badal/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/badal/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/badal/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/badal/1.jpg" class="w-100" /></a>
+               </div>
+            </div>
+            <div id="behdashti" class="tab-pane fade">
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/behdashti/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/behdashti/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/behdashti/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/behdashti/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/behdashti/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/behdashti/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/behdashti/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/behdashti/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/behdashti/1.jpg" class="w-100" /></a>
+               </div>
+            </div>
+            <div id="bazi" class="tab-pane fade">
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/bazi/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/bazi/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/bazi/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/bazi/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/bazi/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/bazi/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/bazi/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/bazi/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/bazi/1.jpg" class="w-100" /></a>
+               </div>
+            </div>
+            <div id="varzesh" class="tab-pane fade">
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/varzesh/8.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/varzesh/8.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/varzesh/8.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/varzesh/8.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/varzesh/8.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/varzesh/8.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/varzesh/8.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/varzesh/8.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/varzesh/8.jpg" class="w-100" /></a>
+               </div>
+            </div>
+            <div id="lebas" class="tab-pane fade">
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/lebas/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/lebas/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/lebas/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/lebas/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/lebas/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/lebas/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/lebas/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/lebas/1.jpg" class="w-100" /></a>
+               </div>
+               <div class="col-md-3">
+                  <a href="#"><img src="img/off/lebas/1.jpg" class="w-100" /></a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</div>
+</div>
+<!---------------------------------->  
+{% endblock mainContent %}
